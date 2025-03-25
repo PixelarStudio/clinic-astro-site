@@ -1,0 +1,42 @@
+---
+// src/components/Header/QuickActions.astro
+---
+<div class="quick-actions">
+    <a href="/turnos" class="action-button">
+      <span class="icon">📅</span>
+      <span>Turnos Online</span>
+    </a>
+    <a href="/portal" class="action-button">
+      <span class="icon">💻</span>
+      <span>Portal Web</span>
+    </a>
+    <a href="/recetas" class="action-button">
+      <span class="icon">💊</span>
+      <span>Recetas Online</span>
+    </a>
+  </div>
+  
+  <style>
+    .quick-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    .action-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-green-health);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.2s;
+    }
+    .action-button:hover {
+      transform: translateY(-2px);
+    }
+    .icon {
+      font-size: 1.2rem;
+    }
+  </style>

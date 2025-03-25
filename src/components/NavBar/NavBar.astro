@@ -1,0 +1,176 @@
+---
+import "../../styles/global.css";
+const links = [
+  { href: "/", text: "Inicio" },
+  { href: "/especialidades", text: "Especialidades" },
+  { href: "/quienes-somos", text: "Quiénes Somos" },
+  { href: "/novedades", text: "Novedades" },
+  { href: "/contacto", text: "Contacto" },
+  { href: "/unite", text: "Unite a Nosotros" },
+];
+---
+
+
+<div class="nav-container">
+  <a href="/" class="logo w-65"><img src="../../public/images/Logo-vdr.png" alt=""></a>
+  <nav>
+    <ul class="menu" id="menu">
+      {links.map((link) => (
+        <li class="nav-item">
+          <a href={link.href} class="nav-link">{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <div id="hamburger" class="hamburger">☰</div>
+</div>
+
+<style>
+  .scrolled {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: black;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 8px;
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+
+  .menu li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    color: blueviolet;
+  }
+
+  .menu li a:hover {
+    color: violet;
+  }
+
+</style>
+<!-- ---
+const links = [
+  { href: "/", text: "Inicio" },
+  { href: "/especialidades", text: "Especialidades" },
+  { href: "/servicios", text: "Nuestros Servicios" },
+  { href: "/quienes-somos", text: "Quiénes Somos" },
+  { href: "/novedades", text: "Novedades" },
+  { href: "/profesionales", text: "Profesionales" },
+  { href: "/contacto", text: "Contacto" },
+  { href: "/unite", text: "Unite a Nosotros" },
+  { href: "/ingreso-pacientes", text: "Ingreso Pacientes" }
+];
+---
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <ul class="nav-links">
+      {links.map((link) => (
+        <li class="nav-item">
+          <a href={link.href} class="nav-link">{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  :root {
+    --primary-color: #0078d7; /* Azul profesional */
+    --secondary-color: #f8f9fa; /* Gris claro para fondos */
+    --text-color: #333; /* Color de texto principal */
+    --hover-color: #0056b3; /* Color de hover */
+    --transition-speed: 0.3s; /* Velocidad de transición */
+  }
+
+  .navbar {
+    background: var(--primary-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-container {
+    max-width: full;
+        margin: 0 auto;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-speed) ease;
+  }
+
+  .nav-link:hover {
+    color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--hover-color);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) ease;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .nav-link {
+      padding: 0.5rem 0;
+    }
+  }
+</style> -->

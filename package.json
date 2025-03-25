@@ -1,0 +1,29 @@
+{
+  "name": "rdv-site-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdoc": "^0.13.0",
+    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/node": "^9.1.3",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/react": "^4.2.1",
+    "@astrojs/sitemap": "^3.2.1",
+    "@tailwindcss/vite": "^4.0.15",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "astro": "^5.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
+  }
+}

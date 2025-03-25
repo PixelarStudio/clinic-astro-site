@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Contacto from "../components/Contacto/Contacto.astro";
+import "../styles/global.css"
+import { getCollection } from "astro:content";
+import QuickActions from "../components/QuickActions/QuickActions.astro";
+import Header from "../components/Header/Header.astro";
+
+const especialidades = getCollection("especialidades")
+
+
+
+---
+
+<Layout> 
+	<Header />
+	<Contacto />
+	<QuickActions />
+</Layout>

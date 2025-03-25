@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+    --color-azul: #0086c4;       /* Azul principal */
+    --color-verde: #107931;      /* Verde principal */
+    --color-verde-claro: #6ce995; /* Verde claro */
+    --color-manzana: #a3d977;    /* Manzana */
+    --color-blanco: #ffffff;
+    --color-gris: #f5f5f5;
+    --color-texto: #333333;
+  }
+  
+  body {
+
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+  }
+  
