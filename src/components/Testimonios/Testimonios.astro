@@ -1,0 +1,35 @@
+---
+const testimonios = [
+  {
+    nombre: "Marcela Torres",
+    especialidad: "Pediatría",
+    texto: "Me atendieron muy rápido y con mucha calidez. El turno online fue sencillo y mi hijo recibió excelente atención."
+  },
+  {
+    nombre: "Carlos Méndez",
+    especialidad: "Cardiología",
+    texto: "El Dr. fue muy claro con el diagnóstico. Me hice los estudios sin demoras y ya estoy en tratamiento."
+  },
+  {
+    nombre: "Florencia Ruiz",
+    especialidad: "Dermatología",
+    texto: "Tenía una duda con una lesión en la piel y en 48hs me dieron un turno. Todo muy profesional."
+  }
+];
+---
+
+<section class="bg-gray-50 py-16 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-12">Lo que dicen nuestros pacientes</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonios.map((t) => (
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 text-left">
+          <p class="text-gray-600 italic mb-4">“{t.texto}”</p>
+          <div class="text-sm font-medium text-gray-800">{t.nombre}</div>
+          <div class="text-xs text-gray-500">{t.especialidad}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

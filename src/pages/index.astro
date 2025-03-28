@@ -1,19 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Contacto from "../components/Contacto/Contacto.astro";
-import "../styles/global.css"
 import { getCollection } from "astro:content";
-import QuickActions from "../components/QuickActions/QuickActions.astro";
 import Header from "../components/Header/Header.astro";
+import EspecialidadesDestacadas from "../components/EspecialidadesDestacadas/EspecialidadesDestacadas.astro";
+import BeneficiosVDR from "../components/BeneficiosVDR/BeneficiosVDR.astro";
+import Testimonios from "../components/Testimonios/Testimonios.astro";
+import UniteANosotros from "../components/UniteANosotros/UniteANosotros.astro";
+import "../styles/global.css"
 
-const especialidades = getCollection("especialidades")
-
-
+const especialidades = getCollection("especialidades")	
 
 ---
 
 <Layout> 
 	<Header />
-	<Contacto />
-	<QuickActions />
+	<BeneficiosVDR />
+	<EspecialidadesDestacadas /> 
+	<Testimonios />
+	<UniteANosotros />
+
+		
 </Layout>

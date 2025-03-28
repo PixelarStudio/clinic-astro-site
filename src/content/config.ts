@@ -16,6 +16,7 @@ const especialidades = defineCollection({
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
     imagen: z.string().optional(),
+  
 
   }),
 });

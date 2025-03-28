@@ -1,0 +1,142 @@
+---
+const especialidades = [
+  { nombre: "Cardiología", slug: "cardiologia" },
+  { nombre: "Clínica Médica", slug: "clinica-medica" },
+  { nombre: "Dermatología", slug: "dermatologia" },
+  { nombre: "Ecos (Ecografías)", slug: "ecos" },
+  { nombre: "Gastroenterología", slug: "gastroenterologia" },
+  { nombre: "Ginecología", slug: "ginecologia" },
+  { nombre: "Nutrición", slug: "nutricion" },
+  { nombre: "Odontología", slug: "odontologia" },
+  { nombre: "Pediatría", slug: "pediatria" },
+  { nombre: "Traumatología", slug: "traumatologia" },
+  { nombre: "Urología", slug: "urologia" }
+];
+import { ClientRouter } from 'astro:transitions';
+
+---
+
+<section class="max-w-7xl mx-auto py-16 px-6 text-center">
+  <ClientRouter />
+  <h2 class="text-3xl font-bold text-gray-800 mb-10">Especialidades Médicas</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {especialidades.map((esp) => (
+      <a 
+        href={`/especialidades/${esp.slug}`}
+        class="relative block rounded-xl overflow-hidden shadow-md transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+        <!-- Imagen de fondo tenue (opcional) -->
+        <div 
+          class="absolute inset-0 bg-cover b g-center opacity-20"
+          style={`background-image: url('/especialidades/${esp.slug}.png');`}
+        ></div>
+
+        <!-- Contenido visible -->
+        <div class="relative z-10 bg-white bg-opacity-90 backdrop-blur-md p-6 border border-gray-200 rounded-xl h-full flex flex-col items-center">
+          <img 
+            src={`/icons/${esp.slug}.png`} 
+            alt={`Icono de ${esp.nombre}`} 
+            class="w-12 h-12 mb-4"
+            loading="lazy"
+          />
+          <h3 class="text-lg font-semibold text-gray-700">{esp.nombre}</h3>
+          <p class="text-sm text-gray-500 mt-2">Ver más →</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<!-- ---
+const especialidades = [
+  { nombre: "Cardiología", icono: "❤️", slug: "cardiologia" },
+  { nombre: "Clínica Médica", icono: "🩺", slug: "clinica-medica" },
+  { nombre: "Dermatología", icono: "🌿", slug: "dermatologia" },
+  { nombre: "Ecos (Ecografías)", icono: "📡", slug: "ecos" },
+  { nombre: "Gastroenterología", icono: "🧬", slug: "gastroenterologia" },
+  { nombre: "Ginecología", icono: "👩‍⚕️", slug: "ginecologia" },
+  { nombre: "Nutrición", icono: "🥗", slug: "nutricion" },
+  { nombre: "Odontología", icono: "🦷", slug: "odontologia" },
+  { nombre: "Pediatría", icono: "👶", slug: "pediatria" },
+  { nombre: "Traumatología", icono: "🦴", slug: "traumatologia" },
+  { nombre: "Urología", icono: "🧑‍⚕️", slug: "urologia" }
+];
+---
+
+<section class="max-w-7xl mx-auto py-16 px-6 text-center">
+  <h2 class="text-3xl font-bold text-gray-800 mb-10">Especialidades Médicas</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {especialidades.map((esp) => (
+      <a 
+        href={`/especialidades/${esp.slug}`}
+        class="relative block rounded-xl overflow-hidden shadow-md transition-all hover:-translate-y-1 hover:shadow-lg"
+      >
+
+        <div 
+          class="absolute inset-0 bg-cover bg-center opacity-20"
+          style={`background-image: url('/especialidades/${esp.slug}.jpg');`}
+        ></div>
+
+        <div class="relative z-10 bg-white bg-opacity-90 backdrop-blur-md p-6 border border-gray-200 rounded-xl h-full">
+          <div class="text-4xl mb-4">{esp.icono}</div>
+          <h3 class="text-lg font-semibold text-gray-700">{esp.nombre}</h3>
+          <p class="text-sm text-gray-500 mt-2">Ver más →</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+ -->
+
+
+<!-- ---
+const especialidades = [
+  {
+    nombre: "Clínica Médica",
+    icono: "🩺",
+    slug: "clinica-medica"
+  },
+  {
+    nombre: "Pediatría",
+    icono: "👶",
+    slug: "pediatria"
+  },
+  {
+    nombre: "Cardiología",
+    icono: "❤️",
+    slug: "cardiologia"
+  },
+  {
+    nombre: "Dermatología",
+    icono: "🌿",
+    slug: "dermatologia"
+  },
+  {
+    nombre: "Ginecología",
+    icono: "👩‍⚕️",
+    slug: "ginecologia"
+  },
+  {
+    nombre: "Odontología",
+    icono: "🦷",
+    slug: "odontologia"
+  }
+];
+---
+
+<section class="max-w-7xl mx-auto py-16 px-6 text-center">
+  <h2 class="text-3xl font-bold text-gray-800 mb-10">Especialidades Médicas</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {especialidades.map((esp) => (
+      <a href={`/especialidades/${esp.slug}`} class="block bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+        <div class="text-4xl mb-4">{esp.icono}</div>
+        <h3 class="text-lg font-semibold text-gray-700">{esp.nombre}</h3>
+        <p class="text-sm text-gray-500 mt-2">Ver más →</p>
+      </a>
+    ))}
+  </div>
+</section>
+ -->

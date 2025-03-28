@@ -1,42 +1,27 @@
 ---
-// src/components/Header/QuickActions.astro
+import "../../styles/global.css";
 ---
-<div class="quick-actions">
-    <a href="/turnos" class="action-button">
-      <span class="icon">📅</span>
-      <span>Turnos Online</span>
-    </a>
-    <a href="/portal" class="action-button">
-      <span class="icon">💻</span>
-      <span>Portal Web</span>
-    </a>
-    <a href="/recetas" class="action-button">
-      <span class="icon">💊</span>
-      <span>Recetas Online</span>
-    </a>
-  </div>
-  
-  <style>
-    .quick-actions {
-      display: flex;
-      gap: 1rem;
-    }
-    .action-button {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--color-green-health);
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.2s;
-    }
-    .action-button:hover {
-      transform: translateY(-2px);
-    }
-    .icon {
-      font-size: 1.2rem;
-    }
-  </style>
+
+<div class="flex flex-wrap justify-center h-auto p-20 gap-4 my-4 bg-image bg-cover bg-center bg-no-repeat"
+     style="background-image: url('/images/med-1.jpg');">
+  <a href="/turnos"
+     class="flex items-center gap-3 text-white px-6 py-3 rounded-xl font-medium shadow-md transition-all hover:-translate-y-1 hover:shadow-lg"
+     style="background-color: var(--color-azul);">
+    <span class="text-xl">📅</span>
+    <span>Turnos Online</span>
+  </a>
+
+  <a href="/portal"
+     class="flex items-center gap-3 text-white px-6 py-3 rounded-xl font-medium shadow-md transition-all hover:-translate-y-1 hover:shadow-lg"
+     style="background-color: var(--color-azul);">
+    <span class="text-xl">💻</span>
+    <span>Portal Web</span>
+  </a>
+
+  <a href="/recetas"
+     class="flex items-center gap-3 text-white px-6 py-3 rounded-xl font-medium shadow-md transition-all hover:-translate-y-1 hover:shadow-lg"
+     style="background-color: var(--color-azul);">
+    <span class="text-xl">💊</span>
+    <span>Recetas Online</span>
+  </a>
+</div>
