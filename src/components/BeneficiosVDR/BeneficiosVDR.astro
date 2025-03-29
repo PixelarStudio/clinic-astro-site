@@ -1,24 +1,24 @@
 ---
 const beneficios = [
   {
-    icono: "✔️",
+    icono: "/icons/cobertura.webp",
     titulo: "Cobertura IOMA y Municipal",
-    descripcion: "Atendemos tanto pacientes del municipio como afiliados a Prestadores  IOMA, con turnos accesibles y atención personalizada."
+    descripcion: "Atendemos tanto pacientes del municipio como Prestadores Medicos afiliados."
   },
   {
-    icono: "👨‍⚕️",
+    icono: "/icons/equipo-medico.webp",
     titulo: "Profesionales Certificados",
-    descripcion: "Contamos con un equipo médico con experiencia, matrícula actualizada y atención empática."
+    descripcion: "Contamos con un equipo médico con experiencia en todas las espcialidades y una atención personalizada."
   },
   {
-    icono: "🌐",
-    titulo: "Portal Web y Turnos Online",
-    descripcion: "Solicitá tus turnos, recetas o consultá tus estudios desde nuestra plataforma digital las 24 horas."
+    icono: "/icons/plataforma.webp",
+    titulo: "Portal Web de V.D.R. Salud",
+    descripcion: "Navega por nuestro sitio intuitivo, accesible y adaptable a todos los dispositivos."
   },
   {
-    icono: "🧾",
+    icono: "/icons/receta.webp",
     titulo: "Recetas Digitales",
-    descripcion: "Tu medicación disponible en tu correo o WhatsApp sin necesidad de asistir presencialmente."
+    descripcion: "Tus recetas disponibles en tu correo o WhatsApp sin necesidad de asistir presencialmente."
   }
 ];
 ---
@@ -29,7 +29,11 @@ const beneficios = [
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
     {beneficios.map((b) => (
       <div class="bg-white border border-gray-200 rounded-xl p-4 md:p-6 shadow-xs hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-        <div class="text-3xl md:text-4xl mb-3 md:mb-4">{b.icono}</div>
+        <img
+          src={b.icono}
+          alt={b.titulo}
+          loading="lazy"
+          class="w-16 h-16 mx-auto mb-4"/>
         <h3 class="text-base md:text-lg font-semibold text-gray-800 leading-tight">{b.titulo}</h3>
         <p class="text-xs md:text-sm text-gray-600 mt-2 md:mt-3 leading-relaxed">{b.descripcion}</p>
       </div>

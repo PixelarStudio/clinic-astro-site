@@ -2,25 +2,34 @@
 import { ClientRouter } from "astro:transitions";
 import NavBar from "../NavBar/NavBar.astro";
 
-// Configuración para el fondo: "image" o "video"
 const backgroundType = "video";
+
 // Ruta del recurso (imagen o video)
-const backgroundSource =
-  "https://firebasestorage.googleapis.com/v0/b/pixelarstudiodb.appspot.com/o/vdr.mp4?alt=media&token=074195af-285b-4bc8-9bdf-34176411ebb2";
-// Si prefieres usar imagen, cambia backgroundType a "image" y asigna la ruta adecuada.
+const backgroundSource = "https://firebasestorage.googleapis.com/v0/b/pixelarstudiodb.appspot.com/o/vdr.mp4?alt=media&token=074195af-285b-4bc8-9bdf-34176411ebb2";
+  
+  const posterImage = "/images/med-3.webp"; // Opcional, imagen que se muestra mientras se carga el video.
+
 ---
 
 <header class="relative">
   <ClientRouter />
   <!-- NavBar -->
-  <NavBar />
+<NavBar />
   <!-- HERO -->
   <section class="relative w-full h-svh overflow-hidden">
     {
       backgroundType === "video" ? (
         <div id="heroBackground" class="absolute inset-0">
-          <video autoplay muted loop class="w-full h-full object-cover">
+          <video 
+            autoplay 
+            playsinline 
+            muted 
+            loop 
+            preload="auto"
+            class="w-full h-full object-cover "
+          >
             <source src={backgroundSource} type="video/mp4" />
+            Tu navegador no soporta el elemento video.
           </video>
         </div>
       ) : (

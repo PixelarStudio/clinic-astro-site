@@ -1,64 +1,81 @@
 ---
+/* Navbar.astro */
+export interface Props {}
 const links = [
   { href: "/", text: "Inicio" },
   { href: "/especialidades", text: "Especialidades" },
   { href: "/contacto", text: "Contacto" },
 ];
-
-export const prerender = true;
 ---
-
-<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/85 backdrop-blur-sm shadow-md transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center">
-      <img src="/images/Logo.webp" alt="Logo VDR Salud" class="w-52" />
-    </a>
-    
+    <div>
+      <a href="/" aria-label="Inicio">
+        <img src="/images/Logo.webp" alt="Logo VDR Salud" class="w-48 h-auto" />
+      </a>
+    </div>
     <!-- Menú Desktop -->
-    <div class="hidden lg:flex space-x-6">
-      {links.map((link) => (
-        <a
+    <div class="hidden lg:flex items-center space-x-8">
+      {links.map(link => (
+        <a 
           href={link.href}
-          class="text-lg text-blue-700 transition-colors duration-300 hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-400"
+          class="desktop-link text-lg font-semibold text-slate-900 transition-transform duration-200 hover:scale-105 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
           {link.text}
         </a>
       ))}
     </div>
-
+    <!-- Portal Clientes (Desktop) -->
+    <div class="hidden lg:block">
+      <a 
+        href="/portal-clientes"
+        class="inline-block px-6 py-2 border border-blue-600 text-lg font-semibold text-blue-600 rounded-full transition-transform duration-200 hover:scale-105 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+      >
+        Portal Clientes
+      </a>
+    </div>
     <!-- Menú Mobile/Tablet -->
-    <div class="lg:hidden relative">
+    <div class="lg:hidden flex items-center">
+      <!-- Portal Clientes (Mobile) -->
+      <a 
+        href="/portal-clientes"
+        class="mr-4 text-lg font-semibold text-blue-600 transition-transform duration-200 hover:scale-105 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+      >
+        
+      </a>
       <input type="checkbox" id="menu-toggle" class="hidden peer" />
-      <label for="menu-toggle" class="cursor-pointer peer z-50 relative">
-        <svg
-          class="w-8 h-8 text-black"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
+      <label for="menu-toggle" id="burger-btn" class="cursor-pointer peer z-50 relative">
+        <div class="p-3 rounded-full transition-transform duration-200 hover:scale-105">
+          <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </div>
       </label>
-
-      <!-- Menú Mobile -->
-      <div id="mobileMenu" class="fixed inset-0 w-full h-full bg-white shadow-lg transition-all duration-300 transform -translate-y-full peer-checked:translate-y-0 flex flex-col items-center justify-center z-40">
-        <ul class="space-y-6 text-center w-full">
-          {links.map((link) => (
+      <div 
+        id="mobileMenu" 
+        class="fixed inset-0 h-screen bg-white/95 backdrop-blur-sm shadow-lg transition-transform duration-300 transform -translate-y-full peer-checked:translate-y-0 z-40 flex flex-col items-center justify-center overflow-y-auto"
+      >
+        <ul class="space-y-6 text-center w-full px-4">
+          {links.map(link => (
             <li class="w-full">
-              <a
+              <a 
                 href={link.href}
-                class="block w-full py-4 text-xl text-blue-700 hover:bg-gray-200 hover:text-green-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400"
+                class="block w-full px-6 py-4 text-xl font-semibold text-slate-900 bg-white border border-slate-300 rounded-full shadow-md transition-transform duration-200 hover:scale-105 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
               >
                 {link.text}
               </a>
             </li>
           ))}
+          <li class="w-full">
+            <a 
+              href="/portal-clientes"
+              class="block w-full px-6 py-4 text-xl font-semibold text-blue-600 border border-blue-600 rounded-full transition-transform duration-200 hover:scale-105 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+            >
+              Portal Clientes
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -66,104 +83,15 @@ export const prerender = true;
 </nav>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuLinks = document.querySelectorAll('#mobileMenu a');
-
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.checked = false;  // Cierra el menú al hacer clic en un enlace
-        mobileMenu.classList.add('-translate-y-full');  // Oculta el menú de manera visual
-      });
+  // Bloquea el scroll del body cuando se abre el menú móvil
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    menuToggle.addEventListener("change", () => {
+      if (menuToggle.checked) {
+        document.body.classList.add("overflow-hidden");
+      } else {
+        document.body.classList.remove("overflow-hidden");
+      }
     });
   });
 </script>
-
-
-
-
-
-
-
-<!-- ---
-const links = [
-  { href: "/", text: "Inicio" },
-  { href: "/especialidades", text: "Especialidades" },
-  { href: "/contacto", text: "Contacto" },
-];
-
-export const prerender = true;
----
-
-<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-    <!-- Logo --
-    <a href="/" class="flex items-center">
-      <img src="/images/Logo.png" alt="Logo VDR Salud" class="w-32" />
-    </a>
-    
-    <!-- Menú Desktop --
-    <div class="hidden lg:flex space-x-6">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class="text-lg text-blue-700 transition-colors duration-300 hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-400"
-        >
-          {link.text}
-        </a>
-      ))}
-    </div>
-
-    <!-- Menú Mobile/Tablet --
-    <div class="lg:hidden relative">
-      <input type="checkbox" id="menu-toggle" class="hidden peer" />
-      <label for="menu-toggle" class="cursor-pointer peer">
-        <svg
-          class="w-8 h-8 text-black"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
-      </label>
-
-      <!-- Menú Mobile --
-      <div id="mobileMenu" class="absolute right-0 top-12 w-full max-w-xs bg-white shadow-lg transition-all duration-300 overflow-hidden max-h-0 peer-checked:max-h-[300px]">
-        <ul class="flex flex-col items-center space-y-4 py-4 text-blue-700">
-          {links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="text-lg transition-all duration-300 hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 close-menu"
-              >
-                {link.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const menuToggle = document.getElementById('menu-toggle');
-    const menuLinks = document.querySelectorAll('.close-menu');
-
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.checked = false;  // Cierra el menú al hacer clic en un enlace
-        mobileMenu.style.maxHeight = "0";  // Oculta el menú de manera visual
-      });
-    });
-  });
-</script> -->

@@ -6,6 +6,7 @@ import { Breadcrumbs } from "astro-breadcrumbs";
 import { ClientRouter } from "astro:transitions";
 import "astro-breadcrumbs/breadcrumbs.css";
 import "../../styles/global.css";
+import NavBar from "../../components/NavBar/NavBar.astro";
 
 // Necesario para que Astro prerenderice las rutas dinámicas
 export const prerender = true;
@@ -28,13 +29,12 @@ if (!especialidad) {
 const { data, slug } = especialidad;
 const {
   title,
-  description,
   descriptionLarge,
   horarios,
   profesionales = [], 
   seoTitle,
   seoDescription,
-  imagen,
+  
 } = data;
 
 const { Content } = await render(especialidad);
@@ -42,10 +42,9 @@ const { Content } = await render(especialidad);
 
 <Layout title={`${title} - Especialidades Médicas`}>
   <ClientRouter />
-  <head>
-    <title>{seoTitle}</title>
-    <meta name="description" content={seoDescription} />
-  </head>
+  <NavBar />
+
+
 
   <!-- 🔹 Sección de Imagen de Fondo con Título -->
   <section class="relative w-full min-h-[45vh] flex items-center justify-center text-white">
@@ -54,7 +53,7 @@ const { Content } = await render(especialidad);
         transition:name={`imagen-${slug}`}
         src={`/especialidades/${slug}.webp`}
         alt={`Imagen de ${title}`}
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover background-no-repeat background-center"
         loading="lazy"
       />
       <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
@@ -75,7 +74,7 @@ const { Content } = await render(especialidad);
       <h2 class="text-xl font-semibold text-gray-800 mb-4">
         <img
           class="w-10 inline"
-          src="../../../public//icons/Info.webp"
+          src="/icons/Info.webp"
           alt=""
           srcset=""
         /> Información General
@@ -87,7 +86,7 @@ const { Content } = await render(especialidad);
       <h2 class="text-xl font-semibold text-gray-800 mb-4">
         <img
           class="w-10 inline"
-          src="../../../public//icons/horarios.webp"
+          src="/icons/horarios.webp"
           alt=""
           srcset=""
         /> Horarios de Atención
@@ -100,7 +99,7 @@ const { Content } = await render(especialidad);
       <div class="mt-8 bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-200">
         <h2 class="text-xl font-semibold text-gray-800 mb-4"><img
           class="w-10 inline"
-          src="../../../public//icons/Profesionales.webp"
+          src="/icons/Profesionales.webp"
           alt=""
           srcset=""/>Profesionales</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

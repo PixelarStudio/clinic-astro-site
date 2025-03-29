@@ -2,13 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+import NavBar from "../components/NavBar/NavBar.astro";
 ---
 
 <Layout title="Contáctanos - VDR Salud">
   <ClientRouter />
+  <NavBar />
 
   <!-- Sección HERO con fondo, título y subtítulo -->
-  <section class="relative w-full min-h-[30vh] flex items-center justify-center text-white">
+  <section class="relative w-full min-h-[45vh] flex items-center justify-center text-white ">
     <div class="absolute inset-0">
       <img
         src="/images/med-2.webp"
@@ -18,7 +20,7 @@ import "../styles/global.css";
       />
       <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
     </div>
-    <div class="relative z-10 text-center px-4 py-8">
+    <div class="relative z-10 text-center px-4 py-8 mt-auto mb-auto">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold
       transition:name()">Contáctanos</h1>
       <p class="mt-4 text-lg sm:text-xl">

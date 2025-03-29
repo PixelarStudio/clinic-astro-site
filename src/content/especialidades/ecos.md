@@ -1,5 +1,5 @@
 ---
-title: "Ecos (Ecografías)"
+title: "Ecografías"
 description: "📡 Estudios de Ecografía - Imágenes médicas no invasivas con tecnología de ultrasonido."
 descriptionLarge: "El servicio de ecografías (ECOS) permite obtener imágenes de órganos y tejidos internos utilizando ultrasonido. Es un estudio indoloro, sin radiación, y clave para el diagnóstico médico. Se realizan estudios ginecológicos, obstétricos, abdominales, renales, de partes blandas, mamarios y vasculares, entre otros."
 horarios: "Lunes a Viernes de 09:00 a 17:00"

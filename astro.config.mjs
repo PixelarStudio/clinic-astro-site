@@ -11,7 +11,7 @@ import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server', 
+  output: 'static',
   integrations: [
     react(),
     mdx(),
@@ -19,6 +19,8 @@ export default defineConfig({
     sitemap(),
     partytown(),
   ],
+
+  
 
   adapter: node({
     mode: 'standalone'

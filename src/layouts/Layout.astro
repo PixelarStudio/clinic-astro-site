@@ -2,6 +2,13 @@
 import Footer from '../components/Footer/Footer.astro'
 import { ClientRouter } from 'astro:transitions';
 import NavBar from '../components/NavBar/NavBar.astro';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+import { Breadcrumbs } from 'astro-breadcrumbs';
+
+const { seoTitle, seoDescription } = Astro.props;
+
+
 ---
 <!doctype html>
 <html lang="es" >
@@ -9,11 +16,12 @@ import NavBar from '../components/NavBar/NavBar.astro';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{seoTitle}</title>
+		<meta name="description" content={seoDescription} />
 		<title>V.D.R. Salud</title>
 		<ClientRouter />
 	</head>
 	<body  >
-		<NavBar server:defer />
 		<slot />
 		<Footer />
 	</body>

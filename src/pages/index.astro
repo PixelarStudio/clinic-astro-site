@@ -1,15 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
 import Header from "../components/Header/Header.astro";
 import EspecialidadesDestacadas from "../components/EspecialidadesDestacadas/EspecialidadesDestacadas.astro";
 import BeneficiosVDR from "../components/BeneficiosVDR/BeneficiosVDR.astro";
 import Testimonios from "../components/Testimonios/Testimonios.astro";
 import UniteANosotros from "../components/UniteANosotros/UniteANosotros.astro";
 import "../styles/global.css"
-
-const especialidades = getCollection("especialidades")	
-
 ---
 
 <Layout> 
