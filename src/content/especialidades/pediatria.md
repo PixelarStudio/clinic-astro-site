@@ -11,5 +11,5 @@ profesionales:
     horarios: "Lunes, Miércoles y Viernes de 09:00 a 14:00"
 seoTitle: "Pediatría en VDR Salud"
 seoDescription: "Consultas pediátricas y acompañamiento de la infancia en VDR Salud."
-imagen: "pediatria.png"
+imagen: "pediatria.webp"
 ---

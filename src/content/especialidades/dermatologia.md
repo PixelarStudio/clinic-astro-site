@@ -9,7 +9,8 @@ profesionales:
     matricula: "MP 66554"
     especialidad: "Dermatología"
     horarios: "Martes y Jueves de 10:00 a 16:00"
+    
 seoTitle: "Dermatología en VDR Salud"
 seoDescription: "Atención dermatológica integral en VDR Salud: piel, cabello y uñas."
-imagen: "dermatologia.png"
+imagen: "dermatologia.webp"
 ---

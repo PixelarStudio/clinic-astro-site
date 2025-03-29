@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Contacto from "../components/Contacto/Contacto.astro";
 import { getCollection } from "astro:content";
 import Header from "../components/Header/Header.astro";
 import EspecialidadesDestacadas from "../components/EspecialidadesDestacadas/EspecialidadesDestacadas.astro";
@@ -14,6 +13,7 @@ const especialidades = getCollection("especialidades")
 ---
 
 <Layout> 
+	
 	<Header />
 	<BeneficiosVDR />
 	<EspecialidadesDestacadas /> 

@@ -5,7 +5,7 @@ descriptionLarge: "La Ginecología es la especialidad dedicada al cuidado de la 
 horarios: "Lunes a Viernes de 09:00 a 18:00"
 practicas: "📌 Prácticas y Servicios: Controles ginecológicos anuales, Papanicolaou, Colposcopía, Asesoramiento en salud sexual y reproductiva, Seguimiento de embarazo, Ecografías ginecológicas y obstétricas, Tratamiento de infecciones y trastornos hormonales."
 profesionales:
-  - nombre: "Dra. Mariana Ruiz"
+  - nombre: "Dra. Mariana Aranda"
     matricula: "MP 45677"
     especialidad: "Ginecología"
     horarios: "Lunes y Miércoles de 09:00 a 13:00"
@@ -37,5 +37,5 @@ profesionales:
 
 seoTitle: "Ginecología en VDR Salud"
 seoDescription: "Consultas y controles ginecológicos con especialistas en salud de la mujer en VDR Salud."
-imagen: "ginecologia.png"
+imagen: "ginecologia.webp"
 ---

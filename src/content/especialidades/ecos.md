@@ -11,5 +11,5 @@ profesionales:
     horarios: "Martes y Jueves de 09:00 a 14:00"
 seoTitle: "Ecografías en VDR Salud"
 seoDescription: "Realizá tus estudios por imágenes con ecografías precisas y seguras en VDR Salud."
-imagen: "ecos.png"
+imagen: "ecos.webp"
 ---

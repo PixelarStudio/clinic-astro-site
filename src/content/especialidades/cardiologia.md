@@ -15,5 +15,5 @@ profesionales:
     horarios: "Jueves y Viernes de 12:00 a 18:00"
 seoTitle: "Cardiología en VDR Salud"
 seoDescription: "Controles cardíacos y estudios cardiovasculares en VDR Salud."
-imagen: "cardiologia.png"
+imagen: "cardiologia.webp"
 ---

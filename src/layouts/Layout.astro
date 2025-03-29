@@ -9,12 +9,11 @@ import NavBar from '../components/NavBar/NavBar.astro';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>le>VDR</title>
+		<title>V.D.R. Salud</title>
 		<ClientRouter />
 	</head>
 	<body  >
-		<NavBar />
+		<NavBar server:defer />
 		<slot />
 		<Footer />
 	</body>

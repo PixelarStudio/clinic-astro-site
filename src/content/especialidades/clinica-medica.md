@@ -15,7 +15,7 @@ profesionales:
     horarios: "Jueves y Viernes de 12:00 a 18:00"
 seoTitle: "Clínica Médica en VDR Salud"
 seoDescription: "Consulta con especialistas en Clínica Médica para el diagnóstico y tratamiento de enfermedades en VDR Salud."
-imagen: "clinica-medica.png"
+imagen: "clinica-medica.webp"
 ---
 
 <!-- ---

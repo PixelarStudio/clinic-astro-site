@@ -1,40 +1,45 @@
 ---
-import { ClientRouter } from "astro:transitions"
+import { ClientRouter } from "astro:transitions";
 import NavBar from "../NavBar/NavBar.astro";
 
 // Configuración para el fondo: "image" o "video"
 const backgroundType = "video";
 // Ruta del recurso (imagen o video)
-const backgroundSource = "../videos/vdr.mp4";
+const backgroundSource =
+  "https://firebasestorage.googleapis.com/v0/b/pixelarstudiodb.appspot.com/o/vdr.mp4?alt=media&token=074195af-285b-4bc8-9bdf-34176411ebb2";
 // Si prefieres usar imagen, cambia backgroundType a "image" y asigna la ruta adecuada.
 ---
 
 <header class="relative">
+  <ClientRouter />
   <!-- NavBar -->
-
+  <NavBar />
   <!-- HERO -->
   <section class="relative w-full h-svh overflow-hidden">
-    <ClientRouter />
-    {backgroundType === "video" ? (
-      <div id="heroBackground" class="absolute inset-0">
-        <video autoplay muted loop class="w-full h-full object-cover">
-          <source src={backgroundSource} type="video/mp4" />
-        </video>
-      </div>
-    ) : (
-      <div id="heroBackground" class="absolute inset-0">
-        <img
-          src={backgroundSource}
-          alt="Fondo Hero"
-          class="w-full h-full object-cover"
-        />
-      </div>
-    )}
+    {
+      backgroundType === "video" ? (
+        <div id="heroBackground" class="absolute inset-0">
+          <video autoplay muted loop class="w-full h-full object-cover">
+            <source src={backgroundSource} type="video/mp4" />
+          </video>
+        </div>
+      ) : (
+        <div id="heroBackground" class="absolute inset-0">
+          <img
+            src={backgroundSource}
+            alt="Fondo Hero"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      )
+    }
     <!-- Overlay oscuro -->
     <div class="absolute inset-0 bg-black opacity-30 shadow-2xs"></div>
-    
+
     <!-- Contenido del Hero -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+    <div
+      class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+    >
       <h1
         id="heroTitle"
         class="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg hero-animate"

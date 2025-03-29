@@ -11,5 +11,5 @@ profesionales:
     horarios: "Martes y Jueves de 10:00 a 16:00"
 seoTitle: "Nutrición en VDR Salud"
 seoDescription: "Consultas nutricionales y planes alimentarios adaptados a cada paciente en VDR Salud."
-imagen: "nutricion.png"
+imagen: "nutricion.webp"
 ---

@@ -7,14 +7,12 @@ import { ClientRouter } from "astro:transitions";
 import "astro-breadcrumbs/breadcrumbs.css";
 import "../../styles/global.css";
 
-const customLastPart = [
-  { index: "ultima", text: "Ultima Pagina!" },
-  { "data-link": "inicio", "aria-label": "Volver al Inicio", text: "Inicio" },
-  { "data-link": "quienes-somos", "aria-label": "Ir a Quiénes Somos", text: "Quienes Somos" }
-];
+// Necesario para que Astro prerenderice las rutas dinámicas
+export const prerender = true;
 
 export async function getStaticPaths() {
   const especialidades = await getCollection("especialidades");
+
   return especialidades.map((especialidad) => ({
     params: { id: especialidad.slug },
     props: { especialidad },
@@ -22,26 +20,40 @@ export async function getStaticPaths() {
 }
 
 const { especialidad } = Astro.props;
+
+if (!especialidad) {
+  throw new Error("No se encontró la especialidad requerida. Asegúrate de que exista en el contenido.");
+}
+
 const { data, slug } = especialidad;
-const { title, description, descriptionLarge, horarios, nombre, matricula, seoTitle, seoDescription, imagen } = data;
+const {
+  title,
+  description,
+  descriptionLarge,
+  horarios,
+  profesionales = [], 
+  seoTitle,
+  seoDescription,
+  imagen,
+} = data;
+
 const { Content } = await render(especialidad);
 ---
 
 <Layout title={`${title} - Especialidades Médicas`}>
   <ClientRouter />
-  <!-- 🔹 SEO Meta Tags -->
   <head>
     <title>{seoTitle}</title>
     <meta name="description" content={seoDescription} />
   </head>
 
   <!-- 🔹 Sección de Imagen de Fondo con Título -->
-  <section class="relative w-full min-h-[30vh] flex items-center justify-center text-white">
+  <section class="relative w-full min-h-[45vh] flex items-center justify-center text-white">
     <div class="absolute inset-0">
       <img
-        transition:name={`imagen-${especialidad.slug}`}
-        src={`/especialidades/${especialidad.slug}.png`}
-        alt={`Imagen de ${especialidad.data.title}`}
+        transition:name={`imagen-${slug}`}
+        src={`/especialidades/${slug}.webp`}
+        alt={`Imagen de ${title}`}
         class="w-full h-full object-cover"
         loading="lazy"
       />
@@ -60,79 +72,61 @@ const { Content } = await render(especialidad);
 
     <!-- 🔹 Información General -->
     <div class="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-200">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">ℹ️ Información General</h2>
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        <img
+          class="w-10 inline"
+          src="../../../public//icons/Info.webp"
+          alt=""
+          srcset=""
+        /> Información General
+      </h2>
       <p class="text-gray-700 mb-4">{descriptionLarge}</p>
-      <p class="text-gray-600"><strong>⌚ Horarios:</strong> {horarios}</p>
+    </div>
+
+  <div class="bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-200">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        <img
+          class="w-10 inline"
+          src="../../../public//icons/horarios.webp"
+          alt=""
+          srcset=""
+        /> Horarios de Atención
+      </h2>
+      <p class="text-gray-700 mb-4">{horarios}</p>
     </div>
 
     <!-- 🔹 Profesionales a Cargo -->
-    {data.profesionales && data.profesionales.length > 0 && (
-      <div class="mt-8">
-        <h2 class="text-xl font-semibold text-gray-800 mb-4">👨‍⚕️ Profesionales</h2>
+    {profesionales.length > 0 && (
+      <div class="mt-8 bg-white shadow-lg rounded-lg p-6 mb-8 border border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4"><img
+          class="w-10 inline"
+          src="../../../public//icons/Profesionales.webp"
+          alt=""
+          srcset=""/>Profesionales</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.profesionales.map((profesional) => (
+          {profesionales.map((profesional) => (
             <div class="bg-white shadow-md rounded-lg p-4 border-l-4 border-blue-500">
-              <h3 class="text-md font-semibold text-gray-900">{profesional.nombre}</h3>
-              <p class="text-gray-600">{profesional.especialidad}</p>
-              <p class="text-sm text-gray-500">🆔 Matrícula: {profesional.matricula}</p>
-              <p class="text-sm text-gray-500">🕒 {profesional.horarios}</p>
+              <h3 class="text-md font-semibold text-gray-900">{profesional.nombre || 'Nombre no especificado'}</h3>
+              <p class="text-gray-600">{profesional.especialidad || 'Especialidad no especificada'}</p>
+              <p class="text-sm text-gray-500">🆔 Matrícula: {profesional.matricula || 'No especificada'}</p>
+              <p class="text-sm text-gray-500">🕒 {profesional.horarios || 'No especificado'}</p>
             </div>
           ))}
         </div>
       </div>
-    )}
 
-    <!-- 🔹 Botón para Contacto -->
+<!-- 🔹 Botón para Solicitar Turno -->
     <div class="mt-10 text-center">
       <a
-        href="/contacto"
-        class="bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white font-medium text-lg px-6 py-3 rounded-lg shadow-md"
+        href="https://api.whatsapp.com/send/?phone=5491124025510&text=Hola%2C+que+tal%3F+Me+gustar%C3%ADa+recibir+mas+informaci%C3%B3n%2C+sobre+el+servicio+de%3A+&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative inline-flex items-center justify-center text-lg px-8 py-4 bg-gradient-to-r from-green-600 to-green-800 text-white font-semibold rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
       >
-<a href="http://"></a>      </a>
+        <img src="/images/wsp.webp" alt="WhatsApp" class="w-6 h-6 mr-2" />
+        Solicitar Turno
+      </a>
     </div>
+    )}
   </section>
 </Layout>
-
-<style>
-  .bg-total {
-    background-image: url("../images/med-2.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-</style>
-
-<!-- ---
-import { getCollection } from "astro:content";
-
-import Layout from "../../layouts/Layout.astro";
-
-export async function getStaticPaths() {
-    const especialidades = await getCollection("especialidades");
-    console.log(especialidades)
-
-    return especialidades.map((especialidad) => ({
-        params: { id: especialidad.slug },
-        props: { especialidad }
-         
-    }))
-}
-
-const { especialidad } = Astro.props
-const { data } = especialidad
-const { title, description, horarios, nombre, matricula,  seoTitle, seoDescription } = data
-
----
-
-
-<Layout title={`${title} - Especialidades Médicas`}>
-  <section class="max-w-7xl mx-auto py-12 px-6">
-    <h1 class="text-3xl font-bold text-center text-gray-900 mb-10">{title}</h1>
-
-    
-
-
-
-  </section>
-</Layout>
- -->

@@ -11,5 +11,5 @@ profesionales:
     horarios: "Martes y Jueves de 10:00 a 16:00"
 seoTitle: "Urología en VDR Salud"
 seoDescription: "Consultas urológicas, control prostático y tratamiento de afecciones urinarias en VDR Salud."
-imagen: "urologia.png"
+imagen: "urologia.webp"
 ---

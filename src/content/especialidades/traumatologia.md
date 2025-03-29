@@ -11,5 +11,5 @@ profesionales:
     horarios: "Lunes, Miércoles y Viernes de 09:00 a 13:00"
 seoTitle: "Traumatología en VDR Salud"
 seoDescription: "Atención de lesiones óseas, musculares y articulares con profesionales especializados en VDR Salud."
-imagen: "traumatologia.png"
+imagen: "traumatologia.webp"
 ---

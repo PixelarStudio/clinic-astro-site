@@ -11,5 +11,5 @@ profesionales:
     horarios: "Miércoles y Viernes de 09:00 a 15:00"
 seoTitle: "Gastroenterología en VDR Salud"
 seoDescription: "Especialistas en salud digestiva, atención personalizada en VDR Salud."
-imagen: "gastroenterologia.png"
+imagen: "gastroenterologia.webp"
 ---

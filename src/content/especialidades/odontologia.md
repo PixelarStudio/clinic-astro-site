@@ -11,5 +11,5 @@ profesionales:
     horarios: "Lunes a Sábados de 09:00 a 13:00"
 seoTitle: "Odontología en VDR Salud"
 seoDescription: "Consultas odontológicas y tratamientos dentales personalizados en VDR Salud."
-imagen: "odontologia.png"
+imagen: "odontologia.webp"
 ---

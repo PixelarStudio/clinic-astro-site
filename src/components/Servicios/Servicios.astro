@@ -1,17 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
 import { ClientRouter } from 'astro:transitions';
-import Layout from '../../layouts/Layout.astro';
 import "../../styles/global.css";
 
 const especialidades = await getCollection('especialidades');
 ---
 <!-- Sección con fondo y título de página -->
-<section class="relative w-full min-h-[30vh] flex items-center justify-center text-white">
+  <section class="relative w-full min-h-[45vh] flex items-center justify-center text-white">
     <ClientRouter />
     <div class="absolute inset-0">
       <img 
-        src="/images/med-2.jpg" 
+        src="/images/med-2.webp" 
         alt="Fondo Especialidades Médicas" 
         class="w-full h-full object-cover" 
         loading="lazy" 
@@ -33,7 +32,7 @@ const especialidades = await getCollection('especialidades');
           <!-- Imagen Representativa -->
           <img 
             transition:name={`imagen-${especialidad.slug}`}
-            src={`/especialidades/${especialidad.slug}.png`} 
+            src={`/especialidades/${especialidad.slug}.webp`} 
             alt={`Imagen de ${especialidad.data.title}`} 
             class="w-full h-48 object-cover rounded-t-lg"
             loading="lazy"
@@ -79,100 +78,4 @@ const especialidades = await getCollection('especialidades');
   </section>
 
 
-//Componente que funciona correctamente. 
-<!-- ---
-import { getCollection } from 'astro:content';
-import { ClientRouter } from 'astro:transitions';
-import "../../styles/global.css";
-import Layout from '../../layouts/Layout.astro';
 
-const especialidades = await getCollection('especialidades');
----
-    <section class="max-w-7xl mx-auto py-12 px-6">
-      <ClientRouter />
-      <h1 class="text-3xl font-bold text-center text-gray-900 mb-10">Especialidades Médicas</h1>
-    
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {especialidades.map((especialidad) => (
-          <div class="shadow-lg rounded-lg border border-gray-200 transition-transform hover:scale-105">
-            
-            {/* Imagen Representativa de la Especialidad */}
-            <img 
-            transition:name={`imagen-${especialidad.slug}`}
-              src={`/especialidades/${especialidad.slug}.png`} 
-              alt={`Imagen de ${especialidad.data.title}`} 
-              class="w-full h-40 object-cover rounded-t-lg max-w-7xl mx-auto px-4 sm:px-6"
-              loading="lazy"
-            />
-    
-            <div class="p-6">
-              <h2 class="text-xl font-semibold text-blue-600">{especialidad.data.title}</h2>
-              <p class="text-gray-700 mt-2">{especialidad.data.description}</p>
-    
-              <div class="mt-4">
-                <strong class="block text-gray-800">🕒 Horarios:</strong>
-                <p class="text-gray-700">{especialidad.data.horarios}</p>
-              </div>
-    
-              <div class="mt-4">
-                <strong class="block text-gray-800">👨‍⚕️ Profesionales:</strong>
-                <ul class="mt-2 text-gray-600 space-y-2">
-                  {especialidad.data.profesionales.map((profesional) => (
-                    <li class="border-l-4 border-blue-500 pl-3 py-1">
-                      <strong>{profesional.nombre}</strong> - {profesional.especialidad}  
-                      <span class="block text-sm text-gray-500">🕒 {profesional.horarios}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-    
-              <a href={`/especialidades/${especialidad.slug}`} class="inline-block mt-5 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-blue-700">
-                Ver más →
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section> -->
-
-<!-- ---
-import { getCollection } from 'astro:content';
-
-const especialidades = await getCollection('especialidades');
-console.log(especialidades)
----
-
-<section class="max-w-7xl mx-auto py-12 px-6">
-  <h1 class="text-3xl font-bold text-center text-gray-900 mb-10">Especialidades Médicas</h1>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {especialidades.map((especialidad) => (
-      <div class="bg-white shadow-lg rounded-lg p-6 border border-gray-200 transition-transform hover:scale-105">
-        <h2 class="text-xl font-semibold text-blue-600">{especialidad.data.title}</h2>
-        <p class="text-gray-700 mt-2">{especialidad.data.description}</p>
-
-        <div class="mt-4">
-          <strong class="block text-gray-800">🕒 Horarios:</strong>
-          <p class="text-gray-700">{especialidad.data.horarios}</p>
-        </div>
-
-        <div class="mt-4">
-          <strong class="block text-gray-800">👨‍⚕️ Profesionales:</strong>
-          <ul class="mt-2 text-gray-600 space-y-2">
-            {especialidad.data.profesionales.map((profesional) => (
-              <li class="border-l-4 border-blue-500 pl-3 py-1">
-                <strong>{profesional.nombre}</strong> - {profesional.especialidad}  
-                <span class="block text-sm text-gray-500">🕒 {profesional.horarios}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <a href={`/especialidades/${especialidad.slug}`} class="inline-block mt-5 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-blue-700">
-          Ver más →
-        </a>
-      </div>
-    ))}
-  </div>
-</section>
- -->
